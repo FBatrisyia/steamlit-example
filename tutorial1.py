@@ -10,12 +10,6 @@ DDA - Line Drawing Algorithm
 """
 
 from IPython.core.display import display_latex
-
-import streamlit as st
-import numpy as np
-import pandas as pd
-import seaborn as sns
-
 #my solution
 import matplotlib.pyplot as plt
 
@@ -45,3 +39,108 @@ ycoordinates = (m * (x1 + 1)) + yintercept
 
 
 print("X1: ", xcoordinates, ", Y1: ", ycoordinates)
+
+"""Midpoint"""
+
+import matplotlib.pyplot as plt
+plt.title("Midpoint Line Algorithm")
+plt.xlabel("X-Axis")
+plt.ylabel("Y-Axis")
+
+def midpoint(ax, ay, bx, by):
+  w = bx - ax
+  h = by - ay
+  F = (h-w)/2
+
+  x = ax
+  y = ay
+
+  print(f"x = {x}, y = {y}")
+
+  xcoordinates = [x]
+  ycoordinates = [y]
+
+  while(x<bx):
+    x = x + 1
+    if(F<0):
+      F = F + h
+
+    else: 
+      F = F + (h-w)
+      y = y + 1
+
+    xcoordinates.append(x)
+    ycoordinates.append(y)
+    print(f"x = {x}, y = {y}")
+    
+  plt.plot(xcoordinates, ycoordinates)
+  plt.show()
+
+
+if __name__=="__main__":
+  print("Enter the starting point of x: ")
+  x1 = int(input())
+  
+  print("Enter the starting point of y: ")
+  y1 = int(input())
+
+  print("Enter the ending point of x: ")
+  x2 = int(input())
+  
+  print("Enter the ending poing of y: ")
+  y2 = int(input())
+
+  midpoint(x1, y1, x2, y2)
+
+"""Bresenham Line Drawing Algorithm"""
+
+import matplotlib.pyplot as plt
+plt.title("Bresenham Algorithm")
+plt.xlabel("X Axis")
+plt.ylabel("Y Axis")
+
+def bresenham(ax, ay, bx, by):
+  w = bx - ax
+  h = by - ay
+  F = 2 * (h-w)
+
+  x = ax
+  y = ay
+
+  print(f"x = {x}, y = {y}")
+
+  xcoordinates = [x]
+  ycoordinates = [y]
+
+  while(x<bx):
+    x = x + 1
+    if(F<0):
+      F =+ 2*h
+
+    else: 
+      F = F + 2*(h-w)
+      y = y + 1
+
+    xcoordinates.append(x)
+    ycoordinates.append(y)
+    print(f"x = {x}, y = {y}")
+    
+  plt.plot(xcoordinates, ycoordinates)
+  plt.show()
+
+
+
+if __name__=="__main__":
+  print("Enter the starting point of x: ")
+  x1 = int(input())
+  
+  print("Enter the starting point of y: ")
+  y1 = int(input())
+
+  print("Enter the ending point of x: ")
+  x2 = int(input())
+  
+  print("Enter the ending poing of y: ")
+  y2 = int(input())
+
+  bresenham(x1, y1, x2, y2)

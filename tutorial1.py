@@ -10,6 +10,12 @@ DDA - Line Drawing Algorithm
 """
 
 from IPython.core.display import display_latex
+
+import streamlit as st
+import numpy as np
+import pandas as pd
+import seaborn as sns
+
 #my solution
 import matplotlib.pyplot as plt
 
@@ -42,7 +48,6 @@ print("X1: ", xcoordinates, ", Y1: ", ycoordinates)
 
 """Midpoint"""
 
-import matplotlib.pyplot as plt
 plt.title("Midpoint Line Algorithm")
 plt.xlabel("X-Axis")
 plt.ylabel("Y-Axis")
@@ -55,7 +60,7 @@ def midpoint(ax, ay, bx, by):
   x = ax
   y = ay
 
-  print(f"x = {x}, y = {y}")
+  st.header(f"x = {x}, y = {y}")
 
   xcoordinates = [x]
   ycoordinates = [y]
@@ -71,7 +76,7 @@ def midpoint(ax, ay, bx, by):
 
     xcoordinates.append(x)
     ycoordinates.append(y)
-    print(f"x = {x}, y = {y}")
+    st.header(f"x = {x}, y = {y}")
     
   plt.plot(xcoordinates, ycoordinates)
   plt.show()
@@ -94,7 +99,6 @@ if __name__=="__main__":
 
 """Bresenham Line Drawing Algorithm"""
 
-import matplotlib.pyplot as plt
 plt.title("Bresenham Algorithm")
 plt.xlabel("X Axis")
 plt.ylabel("Y Axis")
@@ -107,7 +111,7 @@ def bresenham(ax, ay, bx, by):
   x = ax
   y = ay
 
-  print(f"x = {x}, y = {y}")
+  st.header(f"x = {x}, y = {y}")
 
   xcoordinates = [x]
   ycoordinates = [y]
@@ -123,7 +127,7 @@ def bresenham(ax, ay, bx, by):
 
     xcoordinates.append(x)
     ycoordinates.append(y)
-    print(f"x = {x}, y = {y}")
+    st.header(f"x = {x}, y = {y}")
     
   plt.plot(xcoordinates, ycoordinates)
   plt.show()
